@@ -17,6 +17,35 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+
+        let context = self.managedObjectContext!
+
+        var day = NSEntityDescription.insertNewObjectForEntityForName("Day", inManagedObjectContext: context) as Day
+        day.weekday = "Thursday"
+        day.date = NSDate().timeIntervalSinceReferenceDate
+        day.high = 18.0
+        day.low = 6.0
+
+        let day2 = NSEntityDescription.insertNewObjectForEntityForName("Day", inManagedObjectContext: context) as Day
+        day2.weekday = "Friday"
+        day2.date = NSDate().timeIntervalSinceReferenceDate + 60 * 60 * 24
+        day2.high = 16.0
+        day2.low = 0.0
+
+        var hour = NSEntityDescription.insertNewObjectForEntityForName("Hour", inManagedObjectContext: context) as Hour
+        hour.condition = "Sunny"
+        hour.temperature = 22.0
+        day.addHour(hour)
+
+        let hours = day.hours
+        let count = hours.count
+        let owningDay = hour.day
+
+        if let controller = self.window?.rootViewController as? ViewController {
+            controller.context = context
+            controller.model = self.managedObjectModel
+        }
+
         return true
     }
 
@@ -41,7 +70,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
         // Saves changes in the application's managed object context before the application terminates.
-        self.saveContext()
+        // self.saveContext()
     }
 
     // MARK: - Core Data stack
@@ -88,7 +117,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if coordinator == nil {
             return nil
         }
-        var managedObjectContext = NSManagedObjectContext()
+        var managedObjectContext = NSManagedObjectContext(concurrencyType: NSManagedObjectContextConcurrencyType.MainQueueConcurrencyType)
         managedObjectContext.persistentStoreCoordinator = coordinator
         return managedObjectContext
     }()
