@@ -9,38 +9,58 @@
 import UIKit
 import CoreData
 
-class DayViewController: UIViewController {
+class DayViewController: UIViewController, UITableViewDataSource {
 
+    @IBOutlet var tableView: UITableView!
+    
     var context: NSManagedObjectContext!
-    var model: NSManagedObjectModel!
-    @IBOutlet var weekdayField: UITextField!
-    @IBOutlet var lowField: UITextField!
-    @IBOutlet var highField: UITextField!
 
-    var day: Day!
+    var day: Day?
+    var hours: Array<Hour> = []
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
 
-        // Do any additional setup after loading the view.
-
-        let entity = self.model.entitiesByName["Day"] as NSEntityDescription
-        self.day = Day(entity: entity, insertIntoManagedObjectContext: context)
-        self.day.weekday = "Thursday"
-        self.day.date = NSDate().timeIntervalSinceReferenceDate + 60 * 60 * 24 * 2
+        // Determine the hours for the day
+        if let hourSet = self.day?.hours {
+            let sortByTime = NSSortDescriptor(key: "time", ascending: true)
+            self.hours = hourSet.sortedArrayUsingDescriptors([ sortByTime ]) as! Array<Hour>
+            println("There are \(self.hours.count) to display")
+        }
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // Consider what to return if count == 0
+        return hours.count
     }
 
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        self.day.weekday = self.weekdayField.text
-        self.day.low = 10.0
-        self.day.high = 20.0
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("HourCell", forIndexPath: indexPath) as! UITableViewCell
+
+        // Configure the display here
+        let hour = self.hours[indexPath.row]
+        
+        // Display the time
+        
+        // Step 1
+        let date = NSDate(timeIntervalSinceReferenceDate: NSTimeInterval(hour.time))
+
+        // Step 2
+        let formatter = NSDateFormatter()
+        formatter.dateStyle = NSDateFormatterStyle.NoStyle
+        formatter.timeStyle = NSDateFormatterStyle.ShortStyle
+        cell.textLabel?.text = formatter.stringFromDate(date)
+        
+        // Display the temperature
+        let temperature = Int(hour.celsius)
+        cell.detailTextLabel?.text = "\(temperature)"
+        
+        var iconCondition = (hour.condition.lowercaseString).stringByReplacingOccurrencesOfString(" ", withString: "-")
+
+        cell.imageView?.image = UIImage(named: iconCondition)
+        println(iconCondition)
+        
+        return cell
     }
 
 }

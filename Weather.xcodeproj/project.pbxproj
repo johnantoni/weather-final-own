@@ -7,15 +7,21 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5279089D1AF30DBD00A46B07 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5279089C1AF30DBD00A46B07 /* Images.xcassets */; };
 		EA2187421AC4D49E004C44F3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2187411AC4D49E004C44F3 /* AppDelegate.swift */; };
 		EA2187451AC4D49E004C44F3 /* Weather.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EA2187431AC4D49E004C44F3 /* Weather.xcdatamodeld */; };
 		EA2187471AC4D49E004C44F3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2187461AC4D49E004C44F3 /* ViewController.swift */; };
 		EA21874A1AC4D49E004C44F3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EA2187481AC4D49E004C44F3 /* Main.storyboard */; };
-		EA21874C1AC4D49E004C44F3 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EA21874B1AC4D49E004C44F3 /* Images.xcassets */; };
 		EA21874F1AC4D49E004C44F3 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA21874D1AC4D49E004C44F3 /* LaunchScreen.xib */; };
 		EA21875B1AC4D49E004C44F3 /* WeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA21875A1AC4D49E004C44F3 /* WeatherTests.swift */; };
 		EA21876B1AC4DBD6004C44F3 /* Day.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA21876A1AC4DBD6004C44F3 /* Day.swift */; };
 		EA21876D1AC4E3FD004C44F3 /* DayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA21876C1AC4E3FD004C44F3 /* DayViewController.swift */; };
+		EA311AA31AD7576800911068 /* HourlyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA311AA21AD7576800911068 /* HourlyData.swift */; };
+		EA311AA51AD757DB00911068 /* DailyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA311AA41AD757DB00911068 /* DailyData.swift */; };
+		EA311AA71AD75CD400911068 /* DayConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA311AA61AD75CD400911068 /* DayConverter.swift */; };
+		EA377E231AD73BD100127B67 /* DayImporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA377E221AD73BD100127B67 /* DayImporter.swift */; };
+		EA377E251AD73C6200127B67 /* MinutelyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA377E241AD73C6200127B67 /* MinutelyData.swift */; };
+		EA4801221AF26DAC0071A8C2 /* WeekdayConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA4801211AF26DAC0071A8C2 /* WeekdayConverter.swift */; };
 		EA6D997E1ACE015D0047B001 /* Hour.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA6D997D1ACE015C0047B001 /* Hour.swift */; };
 /* End PBXBuildFile section */
 
@@ -30,19 +36,25 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5279089C1AF30DBD00A46B07 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = ../Images.xcassets; sourceTree = "<group>"; };
 		EA21873C1AC4D49E004C44F3 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA2187401AC4D49E004C44F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA2187411AC4D49E004C44F3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA2187441AC4D49E004C44F3 /* Weather.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Weather.xcdatamodel; sourceTree = "<group>"; };
 		EA2187461AC4D49E004C44F3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		EA2187491AC4D49E004C44F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		EA21874B1AC4D49E004C44F3 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		EA21874E1AC4D49E004C44F3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		EA2187541AC4D49E004C44F3 /* WeatherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WeatherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA2187591AC4D49E004C44F3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EA21875A1AC4D49E004C44F3 /* WeatherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTests.swift; sourceTree = "<group>"; };
 		EA21876A1AC4DBD6004C44F3 /* Day.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Day.swift; sourceTree = "<group>"; };
 		EA21876C1AC4E3FD004C44F3 /* DayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayViewController.swift; sourceTree = "<group>"; };
+		EA311AA21AD7576800911068 /* HourlyData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HourlyData.swift; sourceTree = "<group>"; };
+		EA311AA41AD757DB00911068 /* DailyData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DailyData.swift; sourceTree = "<group>"; };
+		EA311AA61AD75CD400911068 /* DayConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayConverter.swift; sourceTree = "<group>"; };
+		EA377E221AD73BD100127B67 /* DayImporter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DayImporter.swift; sourceTree = "<group>"; };
+		EA377E241AD73C6200127B67 /* MinutelyData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinutelyData.swift; sourceTree = "<group>"; };
+		EA4801211AF26DAC0071A8C2 /* WeekdayConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WeekdayConverter.swift; sourceTree = "<group>"; };
 		EA6D997D1ACE015C0047B001 /* Hour.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Hour.swift; path = ../Hour.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,16 +97,22 @@
 		EA21873E1AC4D49E004C44F3 /* Weather */ = {
 			isa = PBXGroup;
 			children = (
+				5279089C1AF30DBD00A46B07 /* Images.xcassets */,
 				EA2187411AC4D49E004C44F3 /* AppDelegate.swift */,
 				EA2187461AC4D49E004C44F3 /* ViewController.swift */,
 				EA2187481AC4D49E004C44F3 /* Main.storyboard */,
-				EA21874B1AC4D49E004C44F3 /* Images.xcassets */,
 				EA21874D1AC4D49E004C44F3 /* LaunchScreen.xib */,
 				EA2187431AC4D49E004C44F3 /* Weather.xcdatamodeld */,
 				EA21876A1AC4DBD6004C44F3 /* Day.swift */,
 				EA6D997D1ACE015C0047B001 /* Hour.swift */,
 				EA21873F1AC4D49E004C44F3 /* Supporting Files */,
 				EA21876C1AC4E3FD004C44F3 /* DayViewController.swift */,
+				EA377E221AD73BD100127B67 /* DayImporter.swift */,
+				EA377E241AD73C6200127B67 /* MinutelyData.swift */,
+				EA311AA21AD7576800911068 /* HourlyData.swift */,
+				EA311AA41AD757DB00911068 /* DailyData.swift */,
+				EA4801211AF26DAC0071A8C2 /* WeekdayConverter.swift */,
+				EA311AA61AD75CD400911068 /* DayConverter.swift */,
 			);
 			path = Weather;
 			sourceTree = "<group>";
@@ -204,9 +222,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5279089D1AF30DBD00A46B07 /* Images.xcassets in Resources */,
 				EA21874A1AC4D49E004C44F3 /* Main.storyboard in Resources */,
 				EA21874F1AC4D49E004C44F3 /* LaunchScreen.xib in Resources */,
-				EA21874C1AC4D49E004C44F3 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,12 +242,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EA311AA31AD7576800911068 /* HourlyData.swift in Sources */,
+				EA311AA51AD757DB00911068 /* DailyData.swift in Sources */,
 				EA2187471AC4D49E004C44F3 /* ViewController.swift in Sources */,
 				EA2187451AC4D49E004C44F3 /* Weather.xcdatamodeld in Sources */,
+				EA377E231AD73BD100127B67 /* DayImporter.swift in Sources */,
 				EA2187421AC4D49E004C44F3 /* AppDelegate.swift in Sources */,
+				EA311AA71AD75CD400911068 /* DayConverter.swift in Sources */,
 				EA6D997E1ACE015D0047B001 /* Hour.swift in Sources */,
 				EA21876B1AC4DBD6004C44F3 /* Day.swift in Sources */,
+				EA377E251AD73C6200127B67 /* MinutelyData.swift in Sources */,
 				EA21876D1AC4E3FD004C44F3 /* DayViewController.swift in Sources */,
+				EA4801221AF26DAC0071A8C2 /* WeekdayConverter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

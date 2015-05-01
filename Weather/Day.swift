@@ -12,15 +12,24 @@ import CoreData
 @objc(Day)
 class Day: NSManagedObject {
 
-    override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
-        super.init(entity: entity, insertIntoManagedObjectContext: context)
-    }
-
     @NSManaged var weekday: String
     @NSManaged var date: NSTimeInterval
     @NSManaged var high: Float
     @NSManaged var low: Float
     @NSManaged var hours: NSSet
+
+    var highCelsius: Float {
+        get {
+            // Conversion to celsius
+            return (high - 32.0) * 5.0 / 9.0
+        }
+    }
+
+    var lowCelsius: Float {
+        get {
+            return (low - 32.0) * 5.0 / 9.0
+        }
+    }
 
     func addHour(hour: Hour) {
         self.mutableSetValueForKey("hours").addObject(hour)

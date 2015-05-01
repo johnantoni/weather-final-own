@@ -18,4 +18,10 @@ class Hour: NSManagedObject {
     @NSManaged var time: Int32
     @NSManaged var day: Day
 
+    var celsius: Float {
+        get {
+            // Conversion to celsius
+            return (temperature - 32.0) * 5.0 / 9.0
+        }
+    }
 }
